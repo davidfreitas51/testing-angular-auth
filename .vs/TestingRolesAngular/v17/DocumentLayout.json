@@ -1,0 +1,91 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\david\\source\\repos\\TestingRolesAngular\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{230CA932-EF0D-410B-978B-E1E6FBE6D7C4}|TestingRolesAngular\\TestingRolesAngular.csproj|c:\\users\\david\\source\\repos\\testingrolesangular\\testingrolesangular\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{230CA932-EF0D-410B-978B-E1E6FBE6D7C4}|TestingRolesAngular\\TestingRolesAngular.csproj|solutionrelative:testingrolesangular\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{230CA932-EF0D-410B-978B-E1E6FBE6D7C4}|TestingRolesAngular\\TestingRolesAngular.csproj|c:\\users\\david\\source\\repos\\testingrolesangular\\testingrolesangular\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{230CA932-EF0D-410B-978B-E1E6FBE6D7C4}|TestingRolesAngular\\TestingRolesAngular.csproj|solutionrelative:testingrolesangular\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{230CA932-EF0D-410B-978B-E1E6FBE6D7C4}|TestingRolesAngular\\TestingRolesAngular.csproj|c:\\users\\david\\source\\repos\\testingrolesangular\\testingrolesangular\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{230CA932-EF0D-410B-978B-E1E6FBE6D7C4}|TestingRolesAngular\\TestingRolesAngular.csproj|solutionrelative:testingrolesangular\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\david\\source\\repos\\TestingRolesAngular\\TestingRolesAngular\\appsettings.json",
+              "RelativeDocumentMoniker": "TestingRolesAngular\\appsettings.json",
+              "ToolTip": "C:\\Users\\david\\source\\repos\\TestingRolesAngular\\TestingRolesAngular\\appsettings.json",
+              "RelativeToolTip": "TestingRolesAngular\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-05T01:32:15.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\david\\source\\repos\\TestingRolesAngular\\TestingRolesAngular\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "TestingRolesAngular\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\david\\source\\repos\\TestingRolesAngular\\TestingRolesAngular\\Controllers\\UserController.cs",
+              "RelativeToolTip": "TestingRolesAngular\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAACsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T01:13:57.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\david\\source\\repos\\TestingRolesAngular\\TestingRolesAngular\\Program.cs",
+              "RelativeDocumentMoniker": "TestingRolesAngular\\Program.cs",
+              "ToolTip": "C:\\Users\\david\\source\\repos\\TestingRolesAngular\\TestingRolesAngular\\Program.cs",
+              "RelativeToolTip": "TestingRolesAngular\\Program.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAxwBsAAACnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T01:12:35.329Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
