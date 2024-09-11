@@ -1,17 +1,22 @@
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { ILoginModel } from '../models/LoginModel';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  private baseUrl: string = "https://localhost:7160/api/user/";
+  private SIGNIN_USER_URL = 'https://localhost:7160/api/user/';
 
   constructor(private http: HttpClient) { }
 
-  login(loginModel: ILoginModel): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}login`, loginModel);
-  }  
+  public login(loginModel: ILoginModel) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      withCredentials: true,
+      observe: 'response' as 'response'
+    };
+
+    return this.http.post<HttpResponse<any>>(this.SIGNIN_USER_URL + "login", loginModel, httpOptions);
+  }
 }

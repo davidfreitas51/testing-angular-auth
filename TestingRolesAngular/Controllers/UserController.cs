@@ -97,9 +97,9 @@ namespace TestingRolesAngular.Controllers
         {
             var cookieOptions = new CookieOptions
             {
-                HttpOnly = true,
-                Expires = DateTime.UtcNow.AddHours(1),
-                SameSite = SameSiteMode.Strict
+                HttpOnly = false,
+                Secure = true,
+                SameSite = SameSiteMode.None
             };
 
             Response.Cookies.Append("AuthToken", token, cookieOptions);

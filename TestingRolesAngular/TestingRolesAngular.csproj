@@ -12,4 +12,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="8.0.2" />
   </ItemGroup>
 
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="@echo off&#xA;setlocal&#xA;&#xA;REM Check if the process is running and stop it&#xA;tasklist /FI &quot;IMAGENAME eq TestingRolesAngular.exe&quot; 2&gt;NUL | find /I /N &quot;TestingRolesAngular.exe&quot;&gt;NUL&#xA;if &quot;%25ERRORLEVEL%25&quot;==&quot;0&quot; (&#xA;    echo Stopping TestingRolesAngular process...&#xA;    taskkill /F /IM TestingRolesAngular.exe&#xA;) else (&#xA;    echo Process not found.&#xA;)&#xA;&#xA;REM Exit with code 0&#xA;exit /b 0" />
+  </Target>
+
 </Project>
