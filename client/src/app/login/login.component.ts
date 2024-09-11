@@ -10,6 +10,8 @@ import { ILoginModel } from '../models/LoginModel';
 export class LoginComponent implements OnInit {
   email: string = '';
   password: string = '';
+  message: string = '';
+  messageType: 'success' | 'error' | 'warning' = 'success'; // to differentiate between message types
 
   constructor(private loginService: LoginService) { }
 
@@ -24,14 +26,17 @@ export class LoginComponent implements OnInit {
       };
       this.loginService.login(loginModel).subscribe(
         response => {
-          console.log('Login successful', response);
+          this.message = 'Login successful';
+          this.messageType = 'success';
         },
         error => {
-          console.error('Login failed', error);
+          this.message = 'Login failed';
+          this.messageType = 'error';
         }
       );
     } else {
-      console.warn('Email and password are required');
+      this.message = 'Email and password are required';
+      this.messageType = 'warning';
     }
   }
 }
