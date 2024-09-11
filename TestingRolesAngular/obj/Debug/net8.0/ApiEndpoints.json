@@ -18,14 +18,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "username",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "password",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "loginModel",
+        "Type": "TestingRolesAngular.LoginModel",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

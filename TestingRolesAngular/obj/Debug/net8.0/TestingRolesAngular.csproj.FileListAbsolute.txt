@@ -42,3 +42,4 @@ C:\Users\david\source\repos\TestingRolesAngular\TestingRolesAngular\bin\Debug\ne
 C:\Users\david\source\repos\TestingRolesAngular\TestingRolesAngular\bin\Debug\net8.0\Scrutor.dll
 C:\Users\david\source\repos\TestingRolesAngular\TestingRolesAngular\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.dll
 C:\Users\david\source\repos\TestingRolesAngular\TestingRolesAngular\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+C:\Users\david\source\repos\TestingRolesAngular\TestingRolesAngular\obj\Debug\net8.0\TestingRolesAngular.sourcelink.json

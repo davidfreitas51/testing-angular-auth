@@ -12,31 +12,23 @@ namespace TestingRolesAngular.Controllers
     public class UserController : ControllerBase
     {
         private readonly string _key = "stringLegalstringLegalstringLegalstringLegalstringLegalstringLegalstringLegalstringLegalstringLegalstringLegalstringLegalstringLegal"; // Replace with a strong key in production
-
         [HttpPost("login")]
-        public IActionResult Login(string username, string password)
+        public IActionResult Login(LoginModel loginModel)
         {
-            // Simple role-based user authentication
-            if (username == "user" && password == "123")
+            var role = GetUserRole(loginModel.Username, loginModel.Password);
+
+            if (role != null)
             {
-                var token = GenerateJwtToken(username, "user");
-                return Ok(new { token });
-            }
-            if (username == "worker" && password == "123")
-            {
-                var token = GenerateJwtToken(username, "worker");
-                return Ok(new { token });
-            }
-            if (username == "admin" && password == "123")
-            {
-                var token = GenerateJwtToken(username, "admin");
-                return Ok(new { token });
+                var token = GenerateJwtToken(loginModel.Username, role);
+                SetTokenCookie(token);
+
+                return Ok(new { message = "Login successful" });
             }
 
-            return BadRequest("Invalid credentials");
+            return BadRequest(new { message = "Invalid credentials" });
         }
 
-        // Endpoint restricted to 'admin' role
+
         [HttpGet("admin")]
         [Authorize(Roles = "admin")]
         public IActionResult Admin()
@@ -44,7 +36,6 @@ namespace TestingRolesAngular.Controllers
             return Ok("Welcome, Admin!");
         }
 
-        // Endpoint restricted to 'admin' or 'worker' roles
         [HttpGet("worker")]
         [Authorize(Roles = "admin,worker")]
         public IActionResult Worker()
@@ -52,7 +43,6 @@ namespace TestingRolesAngular.Controllers
             return Ok("Welcome, Worker!");
         }
 
-        // Endpoint accessible to any authenticated user
         [HttpGet("user")]
         [Authorize]
         public IActionResult User()
@@ -60,7 +50,29 @@ namespace TestingRolesAngular.Controllers
             return Ok("Welcome, User!");
         }
 
-        // Method to generate JWT token with role claims
+        private string GetUserRole(string username, string password)
+        {
+            switch (username)
+            {
+                case "user":
+                    if (password == "123")
+                        return "user";
+                    break;
+                case "worker":
+                    if (password == "123")
+                        return "worker";
+                    break;
+                case "admin":
+                    if (password == "123")
+                        return "admin";
+                    break;
+                default:
+                    return null;
+            }
+            return null;
+        }
+
+
         private string GenerateJwtToken(string username, string role)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -71,14 +83,26 @@ namespace TestingRolesAngular.Controllers
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.Name, username),
-                    new Claim(ClaimTypes.Role, role) // Add role claim
+                    new Claim(ClaimTypes.Role, role)
                 }),
-                Expires = DateTime.UtcNow.AddHours(1), // Token expiry time
+                Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
+        }
+
+        private void SetTokenCookie(string token)
+        {
+            var cookieOptions = new CookieOptions
+            {
+                HttpOnly = true,
+                Expires = DateTime.UtcNow.AddHours(1),
+                SameSite = SameSiteMode.Strict
+            };
+
+            Response.Cookies.Append("AuthToken", token, cookieOptions);
         }
     }
 }
