@@ -11,20 +11,20 @@
       <li class="nav-item">
         <a routerLink="" class="nav-link">Home</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!isAuthenticated()">
         <a routerLink="login" class="nav-link">Login</a>
       </li>
       <li class="nav-item" *ngIf="isAuthenticated()">
         <a routerLink="secret" class="nav-link">Secret</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isAuthenticated() && hasRole('worker')">
         <a routerLink="worker" class="nav-link">Worker</a>
       </li>
-      <li class="nav-item">
-        <a routerLink="admin" (click)="getRoles()" class="nav-link">Admin</a>
+      <li class="nav-item" *ngIf="isAuthenticated() && hasRole('admin')">
+        <a routerLink="admin" class="nav-link">Admin</a>
       </li>
-      <li class="nav-item" *ngIf="isAuthenticated()" (click)="onLogout()">
-        <a href="#" class="nav-link">Logout</a>
+      <li class="nav-item" *ngIf="isAuthenticated()">
+        <a href="#" class="nav-link" (click)="onLogout()">Logout</a>
       </li>
     </ul>
   </header>

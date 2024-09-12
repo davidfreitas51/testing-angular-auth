@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; // Import Router
 import { LoginService } from './loginservice.service';
 import { ILoginModel } from '../models/LoginModel';
 
@@ -13,12 +14,12 @@ export class LoginComponent implements OnInit {
   message: string = '';
   messageType: 'success' | 'error' | 'warning' = 'success'; // to differentiate between message types
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { } // Inject Router
 
   ngOnInit(): void {
   }
 
-  onPost() {
+  onPost(): void {
     if (this.email && this.password) {
       const loginModel: ILoginModel = {
         Username: this.email,
@@ -26,8 +27,8 @@ export class LoginComponent implements OnInit {
       };
       this.loginService.login(loginModel).subscribe(
         response => {
-          this.message = 'Login successful';
-          this.messageType = 'success';
+          // On successful login, redirect to /secret
+          this.router.navigate(['/secret']);
         },
         error => {
           this.message = 'Login failed';
