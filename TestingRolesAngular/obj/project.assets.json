@@ -965,11 +965,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\david\\source\\repos\\TestingRolesAngular\\TestingRolesAngular\\TestingRolesAngular.csproj",
+      "projectUniqueName": "C:\\Users\\david\\Source\\Repos\\testing-angular-auth\\TestingRolesAngular\\TestingRolesAngular.csproj",
       "projectName": "TestingRolesAngular",
-      "projectPath": "C:\\Users\\david\\source\\repos\\TestingRolesAngular\\TestingRolesAngular\\TestingRolesAngular.csproj",
+      "projectPath": "C:\\Users\\david\\Source\\Repos\\testing-angular-auth\\TestingRolesAngular\\TestingRolesAngular.csproj",
       "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\david\\source\\repos\\TestingRolesAngular\\TestingRolesAngular\\obj\\",
+      "outputPath": "C:\\Users\\david\\Source\\Repos\\testing-angular-auth\\TestingRolesAngular\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

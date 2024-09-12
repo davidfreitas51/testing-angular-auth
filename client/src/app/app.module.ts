@@ -9,12 +9,18 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { SecretComponent } from './secret/secret.component';
+import { WorkerComponent } from './worker/worker.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
+    SecretComponent,
+    WorkerComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
