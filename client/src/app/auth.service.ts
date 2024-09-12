@@ -34,4 +34,49 @@ export class AuthService {
   getAuthToken(): string | null {
     return this.cookieService.get('AuthToken');
   }
+
+  getRoles(): string[] {
+    const token = this.getAuthToken();
+    if (!token) {
+      return [];
+    }
+    try {
+      // Decode the token manually
+      const payload = this.decodeJwtToken(token);
+      return payload.role || [];
+    } catch (error) {
+      console.error('Error decoding token:', error);
+      return [];
+    }
+  }
+
+  private decodeJwtToken(token: string): any {
+    // Split the token into its parts
+    const parts = token.split('.');
+    if (parts.length !== 3) {
+      throw new Error('Invalid JWT token');
+    }
+
+    // Base64Url decode the payload part (second part)
+    const payload = parts[1];
+    const decodedPayload = this.base64UrlDecode(payload);
+    return JSON.parse(decodedPayload);
+  }
+
+  private base64UrlDecode(base64Url: string): string {
+    // Replace URL-safe characters
+    let base64 = base64Url
+      .replace(/-/g, '+')
+      .replace(/_/g, '/');
+    
+    // Add padding if necessary
+    const padding = base64.length % 4;
+    if (padding > 0) {
+      base64 += '='.repeat(4 - padding);
+    }
+
+    // Decode base64
+    const decoded = atob(base64);
+    return decoded;
+  }
 }

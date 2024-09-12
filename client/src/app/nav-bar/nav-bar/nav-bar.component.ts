@@ -20,4 +20,8 @@ export class NavBarComponent implements OnInit {
   onLogout(): void {
     this.authService.logout();
   }
+
+  getRoles(): void{
+    this.authService.getRoles();
+  }
 }

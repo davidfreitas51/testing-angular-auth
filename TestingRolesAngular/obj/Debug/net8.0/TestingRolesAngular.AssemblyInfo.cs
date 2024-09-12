@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TestingRolesAngular")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+41ea82c1c5e87f54e41fb6a1cdeef111b10fa2ed")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e72ea540d8045800296015fae0ebbec2a0d43161")]
 [assembly: System.Reflection.AssemblyProductAttribute("TestingRolesAngular")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TestingRolesAngular")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

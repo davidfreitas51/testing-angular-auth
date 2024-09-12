@@ -21,7 +21,7 @@
         <a routerLink="worker" class="nav-link">Worker</a>
       </li>
       <li class="nav-item">
-        <a routerLink="admin" class="nav-link">Admin</a>
+        <a routerLink="admin" (click)="getRoles()" class="nav-link">Admin</a>
       </li>
       <li class="nav-item" *ngIf="isAuthenticated()" (click)="onLogout()">
         <a href="#" class="nav-link">Logout</a>

@@ -12,14 +12,15 @@ namespace TestingRolesAngular.Controllers
     public class UserController : ControllerBase
     {
         private readonly string _key = "stringLegalstringLegalstringLegalstringLegalstringLegalstringLegalstringLegalstringLegalstringLegalstringLegalstringLegalstringLegal"; // Replace with a strong key in production
+
         [HttpPost("login")]
         public IActionResult Login(LoginModel loginModel)
         {
-            var role = GetUserRole(loginModel.Username, loginModel.Password);
+            var (role, additionalRoles) = GetUserRoles(loginModel.Username, loginModel.Password);
 
             if (role != null)
             {
-                var token = GenerateJwtToken(loginModel.Username, role);
+                var token = GenerateJwtToken(loginModel.Username, role, additionalRoles);
                 SetTokenCookie(token);
 
                 return Ok(new { message = "Login successful" });
@@ -27,7 +28,6 @@ namespace TestingRolesAngular.Controllers
 
             return BadRequest(new { message = "Invalid credentials" });
         }
-
 
         [HttpGet("admin")]
         [Authorize(Roles = "admin")]
@@ -50,41 +50,45 @@ namespace TestingRolesAngular.Controllers
             return Ok("Welcome, User!");
         }
 
-        private string GetUserRole(string username, string password)
+        private (string role, string[] additionalRoles) GetUserRoles(string username, string password)
         {
             switch (username)
             {
                 case "user":
                     if (password == "123")
-                        return "user";
+                        return ("user", new string[0]);
                     break;
                 case "worker":
                     if (password == "123")
-                        return "worker";
+                        return ("worker", new[] { "user" });
                     break;
                 case "admin":
                     if (password == "123")
-                        return "admin";
+                        return ("admin", new[] { "worker", "user" });
                     break;
                 default:
-                    return null;
+                    return (null, new string[0]);
             }
-            return null;
+            return (null, new string[0]);
         }
 
-
-        private string GenerateJwtToken(string username, string role)
+        private string GenerateJwtToken(string username, string role, string[] additionalRoles)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_key);
 
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, username),
+                new Claim(ClaimTypes.Role, role)
+            };
+
+            // Add additional roles as claims
+            claims.AddRange(additionalRoles.Select(r => new Claim(ClaimTypes.Role, r)));
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[]
-                {
-                    new Claim(ClaimTypes.Name, username),
-                    new Claim(ClaimTypes.Role, role)
-                }),
+                Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
